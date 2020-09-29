@@ -124,8 +124,7 @@ public class Test1 extends ElementsCommuns implements IConstantes {
 		assertEquals("Wood Treasures - Natural root console", driver.getTitle());
 		
 		assertEquals(donneesProduit[1].toLowerCase(), driver.findElement(By.xpath("//div[@class=\"sinple-c-title\"]/h3")).getText().toLowerCase());
-	
-		
 	}
+	
 	
 }

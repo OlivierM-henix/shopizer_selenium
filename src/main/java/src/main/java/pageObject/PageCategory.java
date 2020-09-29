@@ -14,21 +14,21 @@ public abstract class PageCategory extends ElementsCommuns {
 	public String[] obtenirDonneesProduit(WebElement produit) {
 
 		logger.info(">>>>> Analyse d'un produit");
-		WebElement e1 = produit.findElement(By.xpath("//div//img"));
+		WebElement e1 = produit.findElement(By.xpath(".//div//img"));
 		String produit_photo = e1.getAttribute("src");
 
-		WebElement e2 = produit.findElement(By.xpath("//h3[@itemprop=\"name\"]"));
+		WebElement e2 = produit.findElement(By.xpath(".//h3[@itemprop=\"name\"]"));
 		String produit_nom = e2.getText();
 
 		String produit_prix;
 		String produit_prix_reduit;
 
 		try {
-			WebElement e4 = produit.findElement(By.xpath("//span[@itemprop=\"price\"]"));
+			WebElement e4 = produit.findElement(By.xpath(".//span[@itemprop=\"price\"]"));
 			produit_prix_reduit = e4.getText();
-			produit_prix = produit.findElement(By.xpath("//del")).getText();
+			produit_prix = produit.findElement(By.xpath(".//del")).getText();
 		} catch (Exception e) {
-			WebElement e3 = produit.findElement(By.xpath("//span[@itemprop=\"price\"]"));
+			WebElement e3 = produit.findElement(By.xpath(".//span[@itemprop=\"price\"]"));
 			produit_prix = e3.getText();
 			produit_prix_reduit=null;
 		}
