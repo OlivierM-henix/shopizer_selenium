@@ -44,7 +44,6 @@ public class Test_chromeDriver extends ElementsCommuns implements IConstantes {
 		driver.get(URLSite);
 		assertEquals("Importa", driver.getTitle());
 		pageAccueil = PageFactory.initElements(driver, PageAccueil.class);
-		Thread.sleep(3000);
 	}
 
 	@After

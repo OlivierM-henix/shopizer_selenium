@@ -19,14 +19,15 @@ public class OutilsGeneraux {
 		case firefox:
 			System.setProperty("webdriver.gecko.driver", "src/test/resources/webdrivers/geckodriver.exe");
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
-			firefoxOptions.setHeadless(true);
+//			firefoxOptions.setHeadless(true);
 			driver = new FirefoxDriver(firefoxOptions);
+//			driver.manage().window().maximize();
 			return driver;
 		case chrome:
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
-            options.addArguments("headless");
-            options.addArguments("window-size=1200x600");
+//          options.addArguments("headless");
+//           options.addArguments("window-size=1200x600");
 			driver = new ChromeDriver(options);
 			return driver;
 		case ie:

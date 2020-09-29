@@ -47,9 +47,10 @@ public abstract class ElementsCommuns {
 	
 	/// PAGES OBJECT
 	
-	public PagePanier goToPanier (WebDriver driver) {
+	public PagePanier goToPanier (WebDriver driver) throws InterruptedException {
 		Actions a = new Actions(driver);
 		a.moveToElement(btn_affiche_panier).build().perform();
+		Thread.sleep(1500);
 		btn_goTo_panier.click();
 		return PageFactory.initElements(driver, PagePanier.class);
 	}

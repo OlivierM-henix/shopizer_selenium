@@ -42,10 +42,8 @@ public class Test_geckoDriver extends ElementsCommuns implements IConstantes {
 		// Instanciation pageAuthentification
 		logger.info("Accès à la page d'authentification");
 		driver.get(URLSite);
-		driver.manage().window().maximize();
 		assertEquals("Importa", driver.getTitle());
 		pageAccueil = PageFactory.initElements(driver, PageAccueil.class);
-		Thread.sleep(3000);
 	}
 
 	@After
@@ -62,6 +60,7 @@ public class Test_geckoDriver extends ElementsCommuns implements IConstantes {
 		
 		// Accès au panier et vérification de la présence des éléments
 		PagePanier pagePanier = pageAccueil.goToPanier(driver);
+		Thread.sleep(1000);
 		assertEquals("Passez votre commande", driver.getTitle());
 		
 		assertTrue(pagePanier.col_produit_image.isDisplayed());
