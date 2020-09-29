@@ -3,9 +3,12 @@ package src.main.java.outilsTechniques;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
 
 public class OutilsGeneraux {
 
@@ -15,16 +18,28 @@ public class OutilsGeneraux {
 		switch (nav) {
 		case firefox:
 			System.setProperty("webdriver.gecko.driver", "src/test/resources/webdrivers/geckodriver.exe");
-			driver = new FirefoxDriver();
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setHeadless(true);
+			driver = new FirefoxDriver(firefoxOptions);
 			return driver;
 		case chrome:
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver.exe");
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            options.addArguments("window-size=1200x600");
+			driver = new ChromeDriver(options);
 			return driver;
 		case ie:
 			System.setProperty("webdriver.ie.driver", "src/test/resources/webdrivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			return driver;
+//		case edge :
+//			System.setProperty("webdriver.edge.driver", "src/test/resources/webdrivers/msedgedriver.exe");
+//			driver = new InternetExplorerDriver();
+//			EdgeOptions edgeOptions = new EdgeOptions();
+//			edgeOptions.useChromium = true;
+//			edgeOptions.addArguments("headless");
+//			WebDriver driver= new EdgeDriver(edgeOptions);
 		default:
 			return null;
 		}
