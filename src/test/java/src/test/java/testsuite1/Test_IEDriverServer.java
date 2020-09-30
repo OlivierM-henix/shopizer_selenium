@@ -52,7 +52,7 @@ public class Test_IEDriverServer extends ElementsCommuns implements IConstantes 
 		driver.quit();
 	}
 
-	@Test
+	@Ignore
 	public void test1() throws InterruptedException {
 		logger.info("*****Exécution du test : Ajout d'un produit et mise à jour du panier*****");
 		// Ajout d'un item au panier
@@ -81,7 +81,7 @@ public class Test_IEDriverServer extends ElementsCommuns implements IConstantes 
 		PagePaiement pagePaiement = pagePanier.goToPaiement();		
 	}
 	
-	@Test
+	@Ignore
 	public void test2() throws InterruptedException {
 		logger.info("*****Exécution du test : Parcours de la catégorie table*****");
 		// Se rendre sur la page table
